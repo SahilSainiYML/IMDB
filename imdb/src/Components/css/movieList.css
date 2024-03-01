@@ -1,6 +1,5 @@
 .movieList {
-  padding: 5px;
-  border: 1px solid grey;
   display: flex;
-  flex-wrap: wrap;
+  overflow-x: scroll;
+  float: none;
 }

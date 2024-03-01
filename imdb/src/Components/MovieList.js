@@ -1,15 +1,23 @@
+import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import "./css/movieList.css";
 
 const MovieList = () => {
-  return (
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    fetch(
+      "https://api.themoviedb.org/3/movie/upcoming?api_key=9f48a5b363c49e0c31bf3d09bb319827"
+    )
+      .then((resp) => resp.json())
+      .then((data) => setMovies(data.results));
+  }, []);
+  return movies.length === 0 ? (
+    "Loading..."
+  ) : (
     <div className="movieList">
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
-      <MovieCard />
+      {movies.map((movie, index) => (
+        <MovieCard idx={index} movie={movie} />
+      ))}
     </div>
   );
 };
