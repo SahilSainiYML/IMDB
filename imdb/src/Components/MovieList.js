@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 import "./css/movieList.css";
 
-const MovieList = () => {
+const MovieList = ({ movieType }) => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     fetch(
-      "https://api.themoviedb.org/3/movie/upcoming?api_key=9f48a5b363c49e0c31bf3d09bb319827"
+      `https://api.themoviedb.org/3/movie/${movieType}?api_key=9f48a5b363c49e0c31bf3d09bb319827`
     )
       .then((resp) => resp.json())
       .then((data) => setMovies(data.results));

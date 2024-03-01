@@ -1,5 +1,6 @@
 .movieList {
   display: flex;
   overflow-x: scroll;
+  box-sizing: content-box;
   float: none;
 }

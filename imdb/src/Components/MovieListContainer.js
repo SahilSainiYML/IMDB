@@ -4,7 +4,7 @@ import "./css/movieListContainer.css";
 const MovieListContainer = () => {
   return (
     <div className="movieListContainer">
-      <h1 style={{ "margin-left": "2.5%" }}>
+      <h1>
         <span
           style={{
             "background-color": "yellow",
@@ -17,8 +17,8 @@ const MovieListContainer = () => {
         </span>
         Top 10 on IMDb this week!
       </h1>
-      <MovieList />
-      <h1 style={{ "margin-left": "2.5%" }}>
+      <MovieList movieType={"upcoming"} />
+      <h1>
         <span
           style={{
             "background-color": "yellow",
@@ -31,7 +31,7 @@ const MovieListContainer = () => {
         </span>
         Fan favorites!
       </h1>
-      <MovieList />
+      <MovieList movieType={"popular"} />
     </div>
   );
 };
