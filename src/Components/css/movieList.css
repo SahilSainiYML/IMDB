@@ -3,4 +3,6 @@
   overflow-x: scroll;
   box-sizing: content-box;
   float: none;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
 }
