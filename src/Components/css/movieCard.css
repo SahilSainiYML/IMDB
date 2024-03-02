@@ -9,6 +9,11 @@
   min-width: 15%;
 }
 
+.movieCard:hover .overlay {
+  transform: scale(1.1);
+  visibility: visible;
+}
+
 .movieCard:hover {
   transform: scale(1.1);
 }
@@ -16,4 +21,36 @@
 .movieCard img {
   height: 300px;
   width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 30px;
+  color: red;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  visibility: hidden;
+}
+
+.overlay .tooltiptext {
+  visibility: hidden;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  font-size: 10px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.overlay:hover .tooltiptext {
+  visibility: visible;
+}
+
+button:hover {
+  cursor: pointer;
 }
