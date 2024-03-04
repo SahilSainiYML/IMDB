@@ -5,7 +5,6 @@ import "./css/movieList.css";
 const MovieList = ({ movieType }) => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
-    console.log("useEffect() called");
     fetch(
       `https://api.themoviedb.org/3/movie/${movieType}?api_key=9f48a5b363c49e0c31bf3d09bb319827`
     )

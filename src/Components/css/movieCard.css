@@ -6,12 +6,7 @@
   flex-direction: column;
   justify-content: space-around;
   transition: transform 0.2s;
-  min-width: 15%;
-}
-
-.movieCard:hover .overlay {
-  transform: scale(1.1);
-  visibility: visible;
+  min-width: 20%;
 }
 
 .movieCard:hover {
@@ -31,7 +26,6 @@
   color: red;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
-  visibility: hidden;
 }
 
 .overlay .tooltiptext {
@@ -53,4 +47,15 @@
 
 button:hover {
   cursor: pointer;
+}
+
+.rating-trailer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (min-width: 1480px) {
+  .movieCard {
+    min-width: 200px;
+  }
 }
