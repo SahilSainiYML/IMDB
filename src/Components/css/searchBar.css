@@ -1,0 +1,12 @@
+.searchBar {
+  border: 1px solid gray;
+  border-radius: 2px;
+}
+
+.searchBar input {
+  border: 0cap;
+}
+
+.searchBar button {
+  border: 0cap;
+}

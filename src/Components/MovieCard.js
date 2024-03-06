@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./css/movieCard.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faStar, faHeart } from "@fortawesome/free-solid-svg-icons";
 import Modal from "./Modal";
 
 const MovieCard = ({
@@ -38,8 +38,7 @@ const MovieCard = ({
       <div className="movieCard">
         <div style={{ position: "relative" }}>
           <button className="overlay" onClick={handleFavourite}>
-            {" "}
-            +
+            <FontAwesomeIcon icon={faHeart} />
             <span class="tooltiptext">
               {isInFavourites ? "Remove from Favorites" : "Add to favorites"}
             </span>{" "}
@@ -55,7 +54,9 @@ const MovieCard = ({
             <FontAwesomeIcon icon={faStar} color="orange" />
             {" " + Math.round((movie.vote_average + Number.EPSILON) * 10) / 10}
           </h1>
-          <button onClick={handleTrailerClick}>Trailer</button>
+          <button onClick={handleTrailerClick}>
+            <FontAwesomeIcon icon={faPlay} color="orange" /> Trailer
+          </button>
         </div>
         <button onClick={addToWatchListClicked}>
           {isInWatchList ? "Remove form WatchList" : "Add to WatchList"}

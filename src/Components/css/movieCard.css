@@ -22,8 +22,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 30px;
-  color: red;
+  font-size: 20px;
+  color: rgb(245, 241, 241);
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 2;
 }
@@ -48,7 +48,7 @@
 .rating-trailer-container button {
   min-width: 50%;
   color: whitesmoke;
-  font-size: "15px";
+  font-size: "18px";
   font-weight: "800";
   background-color: black;
 }

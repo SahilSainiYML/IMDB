@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: white;
+  color: red;
+  width: 100vw;
+  height: 50px;
+}
+
+.header p a {
+  text-decoration: none;
+}
+
+input:focus {
+  outline: none;
+}

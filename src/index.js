@@ -1,25 +1,37 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import MovieListContainer from "./Components/MovieListContainer";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Favorites from "./Components/Favorites/Favorites";
 import WatchList from "./Components/Favorites/WatchList";
+import Header from "./Components/Header";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
   {
-    path: "/IMDB",
-    element: <MovieListContainer />,
-  },
-  {
-    path: "/favorites",
-    element: <Favorites />,
-  },
-  {
-    path: "/watchlist",
-    element: <WatchList />,
+    path: "/",
+    element: (
+      <>
+        <Header />
+        <Outlet />
+      </>
+    ),
+    children: [
+      {
+        path: "IMDB",
+        element: <MovieListContainer />,
+      },
+      {
+        path: "/favorites",
+        element: <Favorites />,
+      },
+      {
+        path: "/watchlist",
+        element: <WatchList />,
+      },
+    ],
   },
 ]);
 root.render(
