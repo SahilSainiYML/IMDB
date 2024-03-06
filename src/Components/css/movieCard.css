@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: space-around;
   transition: transform 0.2s;
-  min-width: 20%;
+  height: 90%;
 }
 
 .movieCard:hover {
@@ -45,6 +45,14 @@
   visibility: visible;
 }
 
+.rating-trailer-container button {
+  min-width: 50%;
+  color: whitesmoke;
+  font-size: "15px";
+  font-weight: "800";
+  background-color: black;
+}
+
 button:hover {
   cursor: pointer;
 }
@@ -57,5 +65,11 @@ button:hover {
 @media screen and (min-width: 1480px) {
   .movieCard {
     min-width: 200px;
+  }
+}
+
+@media screen and (max-width: 1480px) {
+  .movieCard {
+    min-width: 150px;
   }
 }

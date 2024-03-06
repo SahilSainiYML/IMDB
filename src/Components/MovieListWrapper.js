@@ -1,7 +1,14 @@
 import React from "react";
 import MovieList from "./MovieList";
 
-const MovieListWrapper = ({ title, movieType }) => {
+const MovieListWrapper = ({
+  title,
+  movieType,
+  watchList,
+  setWatchList,
+  favourites,
+  setFavourites,
+}) => {
   return (
     <h1>
       <span
@@ -15,7 +22,13 @@ const MovieListWrapper = ({ title, movieType }) => {
         {"."}
       </span>
       {title}
-      <MovieList movieType={movieType} />
+      <MovieList
+        movieType={movieType}
+        watchList={watchList}
+        setWatchList={setWatchList}
+        favourites={favourites}
+        setFavourites={setFavourites}
+      />
     </h1>
   );
 };
