@@ -4,12 +4,22 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import MovieListContainer from "./Components/MovieListContainer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Favorites from "./Components/Favorites/Favorites";
+import WatchList from "./Components/Favorites/WatchList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/IMDB",
     element: <MovieListContainer />,
+  },
+  {
+    path: "/favorites",
+    element: <Favorites />,
+  },
+  {
+    path: "/watchlist",
+    element: <WatchList />,
   },
 ]);
 root.render(
@@ -22,19 +32,3 @@ root.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-
-const signin = () => {
-  const [userInfo, setUserInfo] = useState({});
-
-  const handleChange = (e) => {
-    setUserInfo((prevState) => {
-      return { ...prevState, e.dataset["UserName"]: e.target.value };
-    });
-  };
-  return (
-    <form onSubmit={handleChange}>
-      <input placeholder="UserName" data-key="UserName" onChange={handleChange} />{" "}
-      <input placeholder="Password" data-key="Password"onChange={handleChange} />
-    </form>
-  );
-};
