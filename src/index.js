@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
@@ -8,6 +8,23 @@ import Favorites from "./Components/Favorites/Favorites";
 import WatchList from "./Components/Favorites/WatchList";
 import Header from "./Components/Header";
 
+export const listContext = createContext();
+
+const AppLayout = () => {
+  const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+  const watchList = JSON.parse(localStorage.getItem("watchList") || "[]");
+
+  return (
+    <listContext.Provider
+      value={{
+        favorites: favorites,
+        watchList: watchList,
+      }}
+    >
+      <RouterProvider router={router} />
+    </listContext.Provider>
+  );
+};
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
   {
@@ -35,7 +52,7 @@ const router = createBrowserRouter([
   },
 ]);
 root.render(
-  <RouterProvider router={router} />
+  <AppLayout />
   // <React.StrictMode>
   // </React.StrictMode> // for lighthouse
 );

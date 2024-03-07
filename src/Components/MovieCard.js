@@ -19,11 +19,11 @@ const MovieCard = ({
   };
 
   const addToWatchListClicked = () => {
-    handleWatchList(movie.id);
+    handleWatchList(movie);
   };
 
   const handleFavourite = () => {
-    handleFavourites(movie.id);
+    handleFavourites(movie);
   };
 
   return (
@@ -38,7 +38,10 @@ const MovieCard = ({
       <div className="movieCard">
         <div style={{ position: "relative" }}>
           <button className="overlay" onClick={handleFavourite}>
-            <FontAwesomeIcon icon={faHeart} />
+            <FontAwesomeIcon
+              icon={faHeart}
+              color={isInFavourites ? "red" : "white"}
+            />
             <span class="tooltiptext">
               {isInFavourites ? "Remove from Favorites" : "Add to favorites"}
             </span>{" "}
