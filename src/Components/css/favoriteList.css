@@ -1,4 +1,9 @@
 .favorite-list {
-  width: 300px;
-  height: 300px;
+  display: flex;
+}
+.favorite-list .movieCard {
+  margin-top: 80px;
+
+  width: 250px;
+  height: 400px;
 }
