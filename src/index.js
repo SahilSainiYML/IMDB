@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
@@ -11,14 +11,30 @@ import Header from "./Components/Header";
 export const listContext = createContext();
 
 const AppLayout = () => {
-  const favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
-  const watchList = JSON.parse(localStorage.getItem("watchList") || "[]");
+  const [favorites, setFavorites] = useState(
+    JSON.parse(localStorage.getItem("favorites")) || []
+  );
+  const [watchList, setWatchListss] = useState(
+    JSON.parse(localStorage.getItem("watchList")) || []
+  );
+
+  const updateFavorites = (list) => {
+    localStorage.setItem("favorites", JSON.stringify(list));
+    setFavorites(list);
+  };
+
+  const updateWatchList = (list) => {
+    localStorage.setItem("watchList", JSON.stringify(list));
+    setWatchListss(list);
+  };
 
   return (
     <listContext.Provider
       value={{
         favorites: favorites,
         watchList: watchList,
+        updateFavorites: updateFavorites,
+        updateWatchList: updateWatchList,
       }}
     >
       <RouterProvider router={router} />

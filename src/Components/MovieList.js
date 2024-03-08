@@ -5,10 +5,8 @@ import { listContext } from "..";
 
 const MovieList = ({ movieType }) => {
   const [movies, setMovies] = useState([]);
-  const context = useContext(listContext);
-
-  const [watchList, setWatchList] = useState(context.watchList);
-  const [favorites, setFavorites] = useState(context.favorites);
+  let { favorites, watchList, updateFavorites, updateWatchList } =
+    useContext(listContext);
 
   const handleWatchList = (movie) => {
     const isPresent = watchList.some((item) => item.id === movie.id);
@@ -16,34 +14,27 @@ const MovieList = ({ movieType }) => {
       const newList = watchList.filter((item) => {
         return item.id !== movie.id;
       }); // instead of filter we should use index as filter will trace complete array
-      localStorage.setItem("watchList", JSON.stringify(newList));
-      context.watchList = newList;
-      setWatchList(newList);
+      watchList = newList;
+      updateWatchList(newList);
       return newList;
     }
     const newList = [...watchList, movie];
-    context.watchList = newList; // check with context["watchlist"]
-    setWatchList(newList);
-    localStorage.setItem("watchList", JSON.stringify(newList));
-
+    watchList = newList;
+    updateWatchList(newList); // check with context["watchlist"]
     return newList;
   };
 
   const handleFavourites = (movie) => {
     const isPresent = favorites.some((item) => item.id === movie.id);
     if (isPresent) {
-      const newList = favorites.filter((item) => {
-        return item.id !== movie.id;
-      }); // instead of filter we should use index as filter will trace complete array
-      localStorage.setItem("favorites", JSON.stringify(newList));
-      context.favorites = newList;
-      setFavorites(newList);
+      const newList = favorites.filter((item) => item.id !== movie.id); // instead of filter we should use index as filter will trace complete array
+      favorites = newList;
+      updateFavorites(newList);
       return newList;
     }
     const newList = [...favorites, movie];
-    context.favorites = newList;
-    setFavorites(newList);
-    localStorage.setItem("favorites", JSON.stringify(newList));
+    favorites = newList;
+    updateFavorites(newList);
     return newList;
   };
 
@@ -53,7 +44,7 @@ const MovieList = ({ movieType }) => {
     )
       .then((resp) => resp.json())
       .then((data) => setMovies(data.results));
-  }, []);
+  }, [movieType]);
 
   return movies.length === 0 ? (
     "Loading..."

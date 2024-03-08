@@ -1,6 +1,5 @@
 import "./css/movieListContainer.css";
 import MovieListWrapper from "./MovieListWrapper";
-
 const MovieListContainer = () => {
   return (
     <div className="movieListContainer">

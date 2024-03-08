@@ -1,16 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { listContext } from "../../index.js";
 import MovieCard from "../MovieCard.js";
 
 const WatchList = () => {
   const context = useContext(listContext);
-  const [watchList, setWatchList] = useState(context.watchList);
+  const watchList = context.watchList;
 
   const handleWatchList = (movie) => {
     let ind = watchList.indexOf(movie);
     context.watchList.splice(ind, 1);
-    setWatchList([...context.watchList]);
-    localStorage.setItem("watchList", JSON.stringify([...context.watchList]));
+    context.updateWatchList([...context.watchList]);
   };
   return watchList.length === 0 ? (
     <div style={{ color: "red", position: "fixed", "margin-top": "100px" }}>

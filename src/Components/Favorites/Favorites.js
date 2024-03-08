@@ -1,16 +1,15 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { listContext } from "../../index.js";
 import MovieCard from "../MovieCard.js";
 import "../css/favoriteList.css";
 const Favorites = () => {
   const context = useContext(listContext);
 
-  const [favorites, setFavorites] = useState(context.favorites);
+  const favorites = context.favorites;
   const handleFavourites = (movie) => {
     let ind = favorites.indexOf(movie);
     context.favorites.splice(ind, 1);
-    setFavorites([...context.favorites]);
-    localStorage.setItem("favorites", JSON.stringify(context.favorites));
+    context.updateFavorites([...context.favorites]);
   };
   return favorites.length === 0 ? (
     <div style={{ color: "red", position: "fixed", "margin-top": "100px" }}>
@@ -28,6 +27,19 @@ const Favorites = () => {
     </div>
   ) : (
     <div className="favorite-wrapper">
+      <h1>
+        <span
+          style={{
+            "background-color": "yellow",
+            color: "yellow",
+            "margin-right": "5px",
+            "border-radius": "10px",
+          }}
+        >
+          {"."}
+        </span>
+        Your Fantastic favorite movies!
+      </h1>
       <div className="favorite-list">
         {favorites.map((movie, index) => {
           return (
