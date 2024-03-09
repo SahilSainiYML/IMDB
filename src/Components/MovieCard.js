@@ -11,6 +11,8 @@ const MovieCard = ({
   isInWatchList,
   handleFavourites,
   isInFavourites,
+  isFavEditable = true,
+  isWatchEditable = true,
 }) => {
   const [trailerSelected, setTrailerSelected] = useState(false);
 
@@ -19,11 +21,15 @@ const MovieCard = ({
   };
 
   const addToWatchListClicked = () => {
-    handleWatchList(movie);
+    if (isWatchEditable) {
+      handleWatchList(movie);
+    }
   };
 
   const handleFavourite = () => {
-    handleFavourites(movie);
+    if (isFavEditable) {
+      handleFavourites(movie);
+    }
   };
 
   return (
@@ -37,13 +43,23 @@ const MovieCard = ({
       )}
       <div className="movieCard">
         <div style={{ position: "relative" }}>
-          <button className="overlay" onClick={handleFavourite}>
+          <button
+            className="overlay"
+            onClick={handleFavourite}
+            disabled={!isFavEditable}
+          >
             <FontAwesomeIcon
               icon={faHeart}
-              color={isInFavourites ? "red" : "white"}
+              color={
+                isFavEditable ? (isInFavourites ? "red" : "white") : "gray"
+              }
             />
             <span class="tooltiptext">
-              {isInFavourites ? "Remove from Favorites" : "Add to favorites"}
+              {isFavEditable
+                ? isInFavourites
+                  ? "Remove from Favorites"
+                  : "Add to favorites"
+                : "Can't edit!"}
             </span>{" "}
           </button>
           <img
@@ -61,7 +77,7 @@ const MovieCard = ({
             <FontAwesomeIcon icon={faPlay} color="orange" /> Trailer
           </button>
         </div>
-        <button onClick={addToWatchListClicked}>
+        <button onClick={addToWatchListClicked} disabled={!isWatchEditable}>
           {isInWatchList ? "Remove form WatchList" : "Add to WatchList"}
         </button>
       </div>

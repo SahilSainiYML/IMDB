@@ -5,6 +5,7 @@ import MovieCard from "../MovieCard.js";
 const WatchList = () => {
   const context = useContext(listContext);
   const watchList = context.watchList;
+  const favoriteList = [...context.favorites];
 
   const handleWatchList = (movie) => {
     let ind = watchList.indexOf(movie);
@@ -27,6 +28,19 @@ const WatchList = () => {
     </div>
   ) : (
     <div className="favorite-wrapper">
+      <h1>
+        <span
+          style={{
+            "background-color": "yellow",
+            color: "yellow",
+            "margin-right": "5px",
+            "border-radius": "10px",
+          }}
+        >
+          {"."}
+        </span>
+        Next in your list!
+      </h1>
       <div className="favorite-list">
         {context.watchList.map((movie, index) => {
           return (
@@ -34,7 +48,9 @@ const WatchList = () => {
               idx={index}
               movie={movie}
               isInWatchList={true}
+              isInFavourites={favoriteList.some((item) => item.id === movie.id)}
               handleWatchList={handleWatchList}
+              isFavEditable={false}
             />
           );
         })}

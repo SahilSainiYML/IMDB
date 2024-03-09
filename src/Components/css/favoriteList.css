@@ -6,8 +6,12 @@
 }
 .favorite-list {
   display: flex;
+  overflow-x: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  height: 90%;
 }
 .favorite-list .movieCard {
-  width: 250px;
-  height: 400px;
+  height: 50%;
+  margin-top: 20px;
 }

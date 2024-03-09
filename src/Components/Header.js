@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faHouse, faFilm } from "@fortawesome/free-solid-svg-icons";
 import "./css/header.css";
-import SearchBar from "./SearchBar";
+import SearchBar from "./Search/SearchBar";
 const Header = () => {
   return (
     <div className="header">

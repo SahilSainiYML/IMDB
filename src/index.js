@@ -7,8 +7,10 @@ import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Favorites from "./Components/Favorites/Favorites";
 import WatchList from "./Components/Favorites/WatchList";
 import Header from "./Components/Header";
+import SearchScreen from "./Components/Search/SearchScreen";
 
 export const listContext = createContext();
+export const headerContext = createContext();
 
 const AppLayout = () => {
   const [favorites, setFavorites] = useState(
@@ -47,8 +49,10 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div className="mainContainer">
-        <Header />
-        <Outlet />
+        <headerContext.Provider value={{ searchText: "" }}>
+          <Header />
+          <Outlet />
+        </headerContext.Provider>
       </div>
     ),
     children: [
@@ -65,6 +69,10 @@ const router = createBrowserRouter([
         element: <WatchList />,
       },
     ],
+  },
+  {
+    path: "/search/:searchText",
+    element: <SearchScreen />,
   },
 ]);
 root.render(

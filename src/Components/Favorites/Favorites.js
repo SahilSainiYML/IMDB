@@ -48,6 +48,7 @@ const Favorites = () => {
               movie={movie}
               isInFavourites={true}
               handleFavourites={handleFavourites}
+              isWatchEditable={false}
             />
           );
         })}
