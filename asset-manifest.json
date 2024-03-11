@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/IMDB/static/css/main.16a685d6.css",
-    "main.js": "/IMDB/static/js/main.f54eec86.js",
+    "main.css": "/IMDB/static/css/main.82f45107.css",
+    "main.js": "/IMDB/static/js/main.709e18d6.js",
     "static/js/453.71e7d1e6.chunk.js": "/IMDB/static/js/453.71e7d1e6.chunk.js",
     "index.html": "/IMDB/index.html",
-    "main.16a685d6.css.map": "/IMDB/static/css/main.16a685d6.css.map",
-    "main.f54eec86.js.map": "/IMDB/static/js/main.f54eec86.js.map",
+    "main.82f45107.css.map": "/IMDB/static/css/main.82f45107.css.map",
+    "main.709e18d6.js.map": "/IMDB/static/js/main.709e18d6.js.map",
     "453.71e7d1e6.chunk.js.map": "/IMDB/static/js/453.71e7d1e6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.16a685d6.css",
-    "static/js/main.f54eec86.js"
+    "static/css/main.82f45107.css",
+    "static/js/main.709e18d6.js"
   ]
 }
