@@ -1,0 +1,57 @@
+.searchScreen {
+  /* display: flex; */
+  margin: 20px;
+}
+.search-header {
+  width: 60%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  gap: 20px;
+}
+.search-header .searchBar input {
+  width: 500px;
+}
+.search-card-wrapper {
+  width: 60%;
+  margin: auto;
+  height: 30%;
+  border: 1px solid red;
+  padding: 10px;
+}
+.search-card-wrapper .overlay {
+  position: absolute;
+  top: 50%; /* Position Y halfway in */
+  left: 50%; /* Position X halfway in */
+  transform: translate(-50%, -50%); /* Move it halfway back(x,y) */
+  font-size: 40px;
+  background-color: rgb(255, 255, 255);
+  z-index: 2;
+}
+
+.movie-detail {
+  display: flex;
+  gap: 10px;
+}
+
+.movie-detail img {
+  width: 300px;
+  height: 500px;
+}
+.movie-discription {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.searchBar {
+  border: 1px solid gray;
+  border-radius: 2px;
+}
+
+.searchBar input {
+  border: 0cap;
+}
+
+.searchBar button {
+  border: 0cap;
+}

@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import "../css/searchBar.css";
+import "../css/searchScreen.css";
 import { useRef } from "react";
 import { useContext } from "react";
 import { headerContext } from "../..";
@@ -13,9 +13,10 @@ const SearchBar = () => {
   const inputRef = useRef(null);
   const handleSearch = () => {
     let text = inputRef.current.value;
-    console.log(text);
-    context.searchText = text;
-    navigate(`/search/${text}`);
+    if (text) {
+      context.searchText = text;
+      navigate(`/search/${text}`);
+    }
   };
 
   return (
