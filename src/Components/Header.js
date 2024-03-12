@@ -2,22 +2,23 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faHouse, faFilm } from "@fortawesome/free-solid-svg-icons";
 import "./css/header.css";
 import SearchBar from "./Search/SearchBar";
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="header">
       <p>
         <FontAwesomeIcon icon={faHouse} />
-        <a href="/IMDB"> Home </a>
+        <Link to="/IMDB"> Home </Link>
       </p>
 
       <p>
         <FontAwesomeIcon icon={faHeart} />
-        <a href="/favorites"> Favorites </a>
+        <Link to="/favorites"> Favorites </Link>
       </p>
 
       <p>
         <FontAwesomeIcon icon={faFilm} />
-        <a href="/watchlist"> WatchList </a>
+        <Link to="/watchlist"> WatchList </Link>
       </p>
       <p>
         <SearchBar />

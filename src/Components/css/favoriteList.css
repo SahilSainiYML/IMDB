@@ -11,6 +11,12 @@
   scrollbar-width: none;
   height: 90%;
 }
+
+.favorite-list::-webkit-scrollbar {
+  -webkit-appearance: none;
+  height: none;
+}
+
 .favorite-list .movieCard {
   height: 50%;
   margin-top: 20px;

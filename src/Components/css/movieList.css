@@ -3,6 +3,16 @@
   overflow-x: scroll;
   box-sizing: content-box;
   float: none;
+  overflow-y: hidden; /* Hide vertical scrollbar */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
+}
+
+.movieList .hide-scrollbar::-webkit-scrollbar {
+  /*Chrome, Safari, Edge*/
+  display: none;
+}
+
+.movieList::-webkit-scrollbar {
+  -webkit-appearance: none;
 }

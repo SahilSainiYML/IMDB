@@ -41,7 +41,7 @@ const MovieCard = ({
           name={movie.original_title}
         />
       )}
-      <div className="movieCard">
+      <div className="movieCard" onclick="">
         <div style={{ position: "relative" }}>
           <button
             className="overlay"
