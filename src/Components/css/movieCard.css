@@ -15,7 +15,7 @@
 
 .movieCard img {
   height: 300px;
-  width: 100%;
+  max-width: 100%;
 }
 
 .overlay {
@@ -62,9 +62,13 @@ button:hover {
   justify-content: space-between;
 }
 
+.movieCard h1 {
+  text-overflow: clip;
+}
+
 @media screen and (min-width: 1480px) {
   .movieCard {
-    min-width: 200px;
+    width: 200px;
   }
 }
 

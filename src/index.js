@@ -10,7 +10,6 @@ import Header from "./Components/Header";
 import SearchScreen from "./Components/Search/SearchScreen";
 
 export const listContext = createContext();
-export const headerContext = createContext();
 
 const AppLayout = () => {
   const [favorites, setFavorites] = useState(
@@ -49,10 +48,8 @@ const router = createBrowserRouter([
     path: "/",
     element: (
       <div className="mainContainer">
-        <headerContext.Provider value={{ searchText: "" }}>
-          <Header />
-          <Outlet />
-        </headerContext.Provider>
+        <Header />
+        <Outlet />
       </div>
     ),
     children: [
@@ -71,12 +68,13 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/search/:searchText",
+    path: "/search",
     element: <SearchScreen />,
   },
 ]);
 root.render(
   <AppLayout />
+
   // <React.StrictMode>
   // </React.StrictMode> // for lighthouse
 );

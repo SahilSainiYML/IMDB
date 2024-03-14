@@ -1,23 +1,23 @@
 .favorite-wrapper {
-  padding: 50px;
-  height: 100vh;
-  width: 80%;
+  padding-top: 50px;
+  width: 85%;
   margin: auto;
+  overflow-y: scroll;
 }
 .favorite-list {
   display: flex;
-  overflow-x: scroll;
+  flex-wrap: wrap;
+  justify-content: center;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none;
-  height: 90%;
 }
 
-.favorite-list::-webkit-scrollbar {
+.favorite-wrapper::-webkit-scrollbar {
   -webkit-appearance: none;
   height: none;
 }
 
-.favorite-list .movieCard {
-  height: 50%;
-  margin-top: 20px;
+.favorite-wrapper .movieCard {
+  height: 450px;
+  width: 150;
 }

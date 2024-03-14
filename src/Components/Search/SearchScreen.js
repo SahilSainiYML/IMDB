@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SearchMovieCard from "./SearchMovieCard";
 import SearchBar from "./SearchBar";
 import "../css/searchScreen.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClose } from "@fortawesome/free-solid-svg-icons";
 
 const SearchScreen = () => {
-  const params = useParams();
   const [movies, setMovies] = useState([]);
+  const navigate = useNavigate();
+  const [searchText, setSearchText] = useState("");
+  const handleClose = () => {
+    navigate(`/IMDB`);
+  };
 
+  const updateSearch = (text) => {
+    setSearchText(text);
+  };
   useEffect(() => {
     const options = {
       method: "GET",
@@ -19,20 +28,21 @@ const SearchScreen = () => {
     };
 
     fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${params.searchText}&include_adult=false&language=en-US&page=1`,
+      `https://api.themoviedb.org/3/search/movie?query=${searchText}&include_adult=false&language=en-US&page=1`,
       options
     )
       .then((response) => response.json())
       .then((response) => setMovies(response.results || []))
       .catch((err) => setMovies([]));
-  }, []);
+  }, [searchText]);
 
-  console.log(params);
   return (
     <>
       <div className="search-header">
-        <SearchBar />
-        <button>Close</button>
+        <SearchBar searchText={searchText} updateSearch={updateSearch} />
+        <button onClick={handleClose}>
+          <FontAwesomeIcon icon={faClose} color="red" fontSize={"30px"} />
+        </button>
       </div>
       <div className="searchScreen">
         {movies.map((movie) => (

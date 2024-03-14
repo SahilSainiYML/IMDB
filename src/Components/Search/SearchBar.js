@@ -1,27 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
+import React, { useState } from "react";
 import "../css/searchScreen.css";
-import { useRef } from "react";
-import { useContext } from "react";
-import { headerContext } from "../..";
 import { useNavigate } from "react-router-dom";
 
-const SearchBar = () => {
+const SearchBar = ({ updateSearch }) => {
   const navigate = useNavigate();
-  const context = useContext(headerContext);
-  const inputRef = useRef(null);
+  const [searchText, setSearchText] = useState("");
+
   const handleSearch = () => {
-    let text = inputRef.current.value;
-    if (text) {
-      context.searchText = text;
-      navigate(`/search/${text}`);
-    }
+    navigate(`/search`);
+  };
+
+  const handleChange = (e) => {
+    setSearchText(e.target.value);
+    updateSearch(e.target.value);
   };
 
   return (
     <div className="searchBar">
-      <input placeholder="Search" ref={inputRef} />{" "}
+      <input placeholder="Search" value={searchText} onChange={handleChange} />
       {/*try making it auto search when user type */}
       <button onClick={handleSearch}>
         <FontAwesomeIcon icon={faSearch} />

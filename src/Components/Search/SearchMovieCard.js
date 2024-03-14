@@ -1,3 +1,4 @@
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../css/searchScreen.css";
 import { faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
@@ -32,15 +33,15 @@ const SearchMovieCard = ({ movie }) => {
             />
           </div>
           <div className="movie-discription">
-            <h1>{movie.title}</h1>
-            <h3>{movie.overview}</h3>
-            <h3>
+            <h3>{movie.title}</h3>
+            <h5 className="discrition-text">{movie.overview}</h5>
+            <h5>
               <FontAwesomeIcon icon={faStar} color="orange" />
               {" " +
                 Math.round((movie.vote_average + Number.EPSILON) * 10) / 10}
-            </h3>
-            <h3>Release Date {movie.release_date}</h3>
-            <h3>Popularity {movie.popularity}</h3>
+            </h5>
+            <h5>Release Date {movie.release_date}</h5>
+            <h5>Popularity {movie.popularity}</h5>
           </div>
         </div>
       </div>

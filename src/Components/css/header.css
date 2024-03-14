@@ -16,3 +16,7 @@
 input:focus {
   outline: none;
 }
+
+.header .searchBar input {
+  display: none;
+}
