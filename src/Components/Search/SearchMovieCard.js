@@ -12,6 +12,8 @@ const SearchMovieCard = ({ movie }) => {
     setTrailerSelected(true);
   };
 
+  const handleDetails = () => {};
+
   return (
     <>
       {trailerSelected && (
@@ -22,7 +24,7 @@ const SearchMovieCard = ({ movie }) => {
         />
       )}
       <div className="search-card-wrapper">
-        <div className="movie-detail">
+        <div className="movie-detail" onClick={handleDetails}>
           <div style={{ position: "relative" }}>
             <button className="overlay" onClick={handlePlay}>
               <FontAwesomeIcon icon={faPlay} color="red" />
