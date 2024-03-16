@@ -1,8 +1,6 @@
 import React from "react";
 
 const Trailer = ({ id, name }) => {
-  console.log(name, id);
-
   return (
     <iframe
       title={name}

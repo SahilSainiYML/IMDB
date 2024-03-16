@@ -1,0 +1,15 @@
+.video-list {
+  height: 50vh;
+  width: 50vw;
+  overflow-y: scroll;
+}
+
+.image-list {
+  height: 50vh;
+  width: 50vw;
+  overflow-y: scroll;
+}
+
+.image-list img {
+  width: 100%;
+}

@@ -70,3 +70,7 @@
 .movie-detail img {
   max-width: 100%;
 }
+
+.movie-detail:hover {
+  cursor: pointer;
+}

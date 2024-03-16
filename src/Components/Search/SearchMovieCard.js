@@ -4,18 +4,25 @@ import "../css/searchScreen.css";
 import { faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import Modal from "../Modal";
 import { useState } from "react";
+import SearchedMovieDetail from "./SearchedMovieDetail";
 
 const SearchMovieCard = ({ movie }) => {
   const [trailerSelected, setTrailerSelected] = useState(false);
-
+  const [showDetails, setShowDetails] = useState(false);
   const handlePlay = () => {
     setTrailerSelected(true);
   };
 
-  const handleDetails = () => {};
+  const handleDetails = () => {
+    setTrailerSelected(false);
+    setShowDetails(true);
+  };
 
   return (
     <>
+      {showDetails && (
+        <SearchedMovieDetail movie={movie} setIsOpen={setShowDetails} />
+      )}
       {trailerSelected && (
         <Modal
           setIsOpen={setTrailerSelected}
@@ -24,7 +31,7 @@ const SearchMovieCard = ({ movie }) => {
         />
       )}
       <div className="search-card-wrapper">
-        <div className="movie-detail" onClick={handleDetails}>
+        <div className="movie-detail">
           <div style={{ position: "relative" }}>
             <button className="overlay" onClick={handlePlay}>
               <FontAwesomeIcon icon={faPlay} color="red" />
@@ -34,7 +41,7 @@ const SearchMovieCard = ({ movie }) => {
               alt="movieImg"
             />
           </div>
-          <div className="movie-discription">
+          <div className="movie-discription" onClick={handleDetails}>
             <h3>{movie.title}</h3>
             <h5 className="discrition-text">{movie.overview}</h5>
             <h5>
